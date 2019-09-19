@@ -4,21 +4,21 @@ namespace shintarosakata\LaravelRepository\Console;
 
 use Illuminate\Console\GeneratorCommand as Command;
 
-class MakeRepository extends Command
+class MakeInterface extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $name = 'make:repository';
+    protected $name = 'make:interface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new repository class';
+    protected $description = 'Create a new interface class';
 
     /**
      * Create a new command instance.
@@ -26,11 +26,11 @@ class MakeRepository extends Command
      * @return void
      */
 
-    protected $type = 'Repository';
+    protected $type = 'Interface';
 
     protected function getStub()
     {
-        return __DIR__.'/stubs/repository.stub';
+        return __DIR__.'/stubs/interface.stub';
     }
 
     /**
@@ -41,6 +41,16 @@ class MakeRepository extends Command
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories\\' . $this->getNameInput();
+        return $rootNamespace . '\Repositories\\' . trim($this->argument('name'));
+    }
+
+    /**
+     * クラス名の偽装
+     *
+     * @return string
+     */
+    protected function getNameInput()
+    {
+        return trim($this->argument('name')) . 'Interface';
     }
 }

@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use shintarosakata\LaravelRepository\Repository\RepositoryInterface;
+
+interface DummyClass extends RepositoryInterface
+{
+    //
+}

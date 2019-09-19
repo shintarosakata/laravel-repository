@@ -3,6 +3,7 @@
 namespace shintarosakata\LaravelRepository;
 
 use Illuminate\Support\ServiceProvider;
+use shintarosakata\LaravelRepository\Console\MakeInterface;
 use shintarosakata\LaravelRepository\Console\MakeRepository;
 use Illuminate\Filesystem\Filesystem;
 
@@ -26,8 +27,13 @@ class ConsoleServiceProvider extends ServiceProvider
             return new MakeRepository(new Filesystem);
         });
 
+        $this->app->singleton('command.shintaroakata.make.interface', function () {
+            return new MakeInterface(new Filesystem);
+        });
+
         $this->commands([
             'command.shintaroakata.make.repository',
+            'command.shintaroakata.make.interface',
         ]);
     }
 
@@ -35,6 +41,7 @@ class ConsoleServiceProvider extends ServiceProvider
     {
         return [
             'command.shintaroakata.make.repository',
+            'command.shintaroakata.make.interface',
         ];
     }
 }
