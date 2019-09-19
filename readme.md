@@ -28,11 +28,20 @@ RepositoryProvider is for binding repository and interface
 
 ### 1. make repository, interface, entity and provider
 
+Entity name -> singular
+
+Other -> plural
+
 ```
+$ artisan make:entity Test
+entity created successfully.
+
 $ artisan make:repository Tests
 repository created successfully.
+
 $ artisan make:interface Tests
 repository created successfully.
+
 $ artisan make:repositoryProvider RepositoryProvider
 Provider created successfully.
 ```
@@ -115,7 +124,7 @@ namespace App\Entities;
 
 use shintarosakata\LaravelRepository\Entity\Entity as upstreamEntity;
 
-abstract class Test extends upstreamEntity
+class Test extends upstreamEntity
 {
     // Add behavior here...
 }
