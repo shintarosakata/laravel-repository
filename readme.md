@@ -1,4 +1,9 @@
-## About Laravel-Repository
+# Laravel-Repository
+
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![StyleCI](https://github.styleci.io/repos/209440408/shield?branch=master)](https://github.styleci.io/repos/209440408)
+
+## About
 
 framework for building repository pattern in Laravel.
 

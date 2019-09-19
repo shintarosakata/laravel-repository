@@ -2,8 +2,8 @@
 
 namespace shintarosakata\LaravelRepository\Entity;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class Entity extends Model
 {
@@ -21,7 +21,7 @@ abstract class Entity extends Model
     {
         $class_name_list = explode('\\', $entity_class);
         $class_name = Str::plural(last($class_name_list));
-        $repository_class = 'App\Repositories\\' . $class_name . '\\' .$class_name;
+        $repository_class = 'App\Repositories\\'.$class_name.'\\'.$class_name;
 
         return $repository_class;
     }
