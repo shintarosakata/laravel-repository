@@ -2,11 +2,11 @@
 
 namespace shintarosakata\LaravelRepository;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use shintarosakata\LaravelRepository\Console\MakeEntity;
 use shintarosakata\LaravelRepository\Console\MakeInterface;
 use shintarosakata\LaravelRepository\Console\MakeRepository;
-use Illuminate\Filesystem\Filesystem;
 use shintarosakata\LaravelRepository\Console\MakeRepositoryProvider;
 
 class ConsoleServiceProvider extends ServiceProvider
