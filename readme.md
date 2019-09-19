@@ -19,6 +19,7 @@ $ composer require shintarosakata/laravel-repository
 ```
 $ artisan make:repository <name>
 $ artisan make:interface <name>
+$ artisan make:entity <name>
 $ artisan make:repositoryProvider <name>
 ```
 
