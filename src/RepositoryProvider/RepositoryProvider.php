@@ -5,10 +5,9 @@ namespace shintarosakata\LaravelRepository\RepositoryProvider;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * リポジトリをバインドするクラス
+ * リポジトリをバインドするクラス.
  *
  * Class RepositoryProvider
- * @package App\Providers
  */
 class RepositoryProvider extends ServiceProvider
 {
@@ -39,7 +38,7 @@ class RepositoryProvider extends ServiceProvider
 
     /**
      * Repositoryが置かれているpath
-     * Where repositories are located
+     * Where repositories are located.
      * @var string
      */
     protected $repositories_path = 'App\Repositories';
@@ -62,11 +61,11 @@ class RepositoryProvider extends ServiceProvider
 
     private function interfacePath(string $repository): string
     {
-        return $this->repositories_path . "\\$repository\\$repository" . 'Interface';
+        return $this->repositories_path."\\$repository\\$repository".'Interface';
     }
 
     private function repositoryPath(string $repository): string
     {
-        return $this->repositories_path . "\\$repository\\$repository";
+        return $this->repositories_path."\\$repository\\$repository";
     }
 }
