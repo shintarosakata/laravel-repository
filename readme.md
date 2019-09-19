@@ -47,6 +47,22 @@ $ artisan make:repositoryProvider RepositoryProvider
 Provider created successfully.
 ```
 
+↓
+
+```
+.
+└── app
+    ├── Entities
+    │   └── Test.php
+    │
+    ├── Repositories
+    │   ├── Tests.php
+    │   └── TestsInterface.php
+    │
+    └── Providers
+        └── RepositoryProvider
+```
+
 ### 2. Binding Interfaces To Implementations
 
 ```php
@@ -138,7 +154,7 @@ class Test extends upstreamEntity
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Features\FeaturesInterface;
+use App\Repositories\Tests\TestsInterface;
 
 class SampleController extends Controller
 {
