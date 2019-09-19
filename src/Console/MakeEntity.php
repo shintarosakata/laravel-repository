@@ -25,7 +25,6 @@ class MakeEntity extends Command
      *
      * @return void
      */
-
     protected $type = 'Entity';
 
     protected function getStub()
@@ -34,13 +33,13 @@ class MakeEntity extends Command
     }
 
     /**
-     * クラスのデフォルトの名前空間を取得する
+     * クラスのデフォルトの名前空間を取得する.
      *
      * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Entities';
+        return $rootNamespace.'\Entities';
     }
 }

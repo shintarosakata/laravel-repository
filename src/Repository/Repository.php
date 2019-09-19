@@ -2,13 +2,13 @@
 
 namespace shintarosakata\LaravelRepository\Repository;
 
-use shintarosakata\LaravelRepository\Entity\Entity;
 use Illuminate\Support\Str;
+use shintarosakata\LaravelRepository\Entity\Entity;
 
 abstract class Repository implements RepositoryInterface
 {
     /**
-     * use table
+     * use table.
      * @var string
      */
     protected $table;
@@ -40,6 +40,7 @@ abstract class Repository implements RepositoryInterface
     public function newEntity(): Entity
     {
         $entity_class_name = $this->getEntityClassName(get_class($this));
+
         return $this->instantiateClass($entity_class_name);
     }
 
@@ -52,7 +53,7 @@ abstract class Repository implements RepositoryInterface
         if ($entity->save()) {
             return $entity;
         } else {
-            return null;
+            return;
         }
     }
 
@@ -67,7 +68,7 @@ abstract class Repository implements RepositoryInterface
         if ($entity->update($attributes, $options)) {
             return $entity;
         } else {
-            return null;
+            return;
         }
     }
 
@@ -92,7 +93,7 @@ abstract class Repository implements RepositoryInterface
     {
         $class_name_list = explode('\\', $repository_class);
         $class_name = last($class_name_list);
-        $entity_class = 'App\Entities\\' . $class_name;
+        $entity_class = 'App\Entities\\'.$class_name;
 
         return $entity_class;
     }

@@ -25,7 +25,6 @@ class MakeRepository extends Command
      *
      * @return void
      */
-
     protected $type = 'Repository';
 
     protected function getStub()
@@ -34,13 +33,13 @@ class MakeRepository extends Command
     }
 
     /**
-     * クラスのデフォルトの名前空間を取得する
+     * クラスのデフォルトの名前空間を取得する.
      *
      * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories\\' . $this->getNameInput();
+        return $rootNamespace.'\Repositories\\'.$this->getNameInput();
     }
 }
