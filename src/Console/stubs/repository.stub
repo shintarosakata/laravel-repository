@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use shintarosakata\LaravelRepository\Repository\Repository;
+
+class DummyClass extends Repository implements DummyClassInterface
+{
+    protected $table = '';
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Entities;
+
+use shintarosakata\LaravelRepository\Entity\Entity as upstreamEntity;
+
+class DummyClass extends upstreamEntity
+{
+    // Add behavior here...
+}
