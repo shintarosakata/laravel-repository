@@ -20,7 +20,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "shintarosakata\\LaravelRepository\\LaravelRepositoryServiceProvider"
+                "shintarosakata\\LaravelRepository\\LaravelRepositoryServiceProvider",
+                "shintarosakata\\LaravelRepository\\ConsoleServiceProvider"
             ]
         }
     }
