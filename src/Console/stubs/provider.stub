@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Providers;
+
+use shintarosakata\LaravelRepository\RepositoryProvider\RepositoryProvider as upstreamRepositoryProvider;
+
+/**
+ * Class RepositoryProvider
+ * @package App\Providers
+ */
+class DummyClass extends upstreamRepositoryProvider
+{
+    /**
+    * Register repositories.
+    *
+    * @var array
+    */
+    protected $repositories = [
+        //
+    ];
+
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        parent::register();
+
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+}
