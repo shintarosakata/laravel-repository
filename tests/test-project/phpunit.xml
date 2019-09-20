@@ -19,7 +19,11 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">../../src</directory>
+            <exclude>
+                <file>../../src/ConsoleServiceProvider.php</file>
+                <file>../../src/LaravelRepositoryServiceProvider.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <extensions>
