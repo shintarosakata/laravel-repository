@@ -21,7 +21,7 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../../src</directory>
             <exclude>
-                <directory>./</directory>
+                <directory suffix=".php">./</directory>
                 <file>../../src/ConsoleServiceProvider.php</file>
                 <file>../../src/LaravelRepositoryServiceProvider.php</file>
             </exclude>
