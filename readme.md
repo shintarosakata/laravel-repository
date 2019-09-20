@@ -40,13 +40,13 @@ Entity name -> singular
 Other -> plural
 
 ```
-$ artisan make:entity Test
+$ artisan make:entity Sample
 entity created successfully.
 
-$ artisan make:repository Tests
+$ artisan make:repository Samples
 repository created successfully.
 
-$ artisan make:interface Tests
+$ artisan make:interface Samples
 repository created successfully.
 
 $ artisan make:repositoryProvider RepositoryProvider
@@ -59,11 +59,11 @@ Provider created successfully.
 .
 └── app
     ├── Entities
-    │   └── Test.php
+    │   └── Sample.php
     │
     ├── Repositories
-    │   ├── Tests.php
-    │   └── TestsInterface.php
+    │   ├── Samples.php
+    │   └── SamplesInterface.php
     │
     └── Providers
         └── RepositoryProvider
@@ -83,7 +83,7 @@ class RepositoryProvider extends upstreamRepositoryProvider
     // ...
     
     protected $repositories = [
-        'Tests', // Add <name> here
+        'Samples', // Add <name> here
     ];
 
     // ...
@@ -117,17 +117,17 @@ return [
 ```php
 <?php
 
-namespace App\Repositories\Tests;
+namespace App\Repositories\Samples;
 
 use shintarosakata\LaravelRepository\Repository\Repository;
 use Illuminate\Database\Eloquent\Collection;
-use App\Entities\Test;
+use App\Entities\Sample;
 
-class Tests extends Repository implements TestsInterface
+class Samples extends Repository implements SamplesInterface
 {
-    protected $table = ''; // Add DB Table name here
+    protected $table = 'samples'; // Add DB Table name here
     
-    public function fetchFirst(): Test
+    public function fetchFirst(): Sample
     {
         return $this->builder->first();
     }
@@ -145,17 +145,17 @@ class Tests extends Repository implements TestsInterface
 ```php
 <?php
 
-namespace App\Repositories\Tests;
+namespace App\Repositories\Samples;
 
 use shintarosakata\LaravelRepository\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
-use App\Entities\Test;
+use App\Entities\Sample;
 
-interface TestsInterface extends RepositoryInterface
+interface SamplesInterface extends RepositoryInterface
 {
     // Add public functions here...
     
-    public function fetchFirst(): Test;
+    public function fetchFirst(): Sample;
 
     public function fetchAll(): Collection;
 }
@@ -170,7 +170,7 @@ namespace App\Entities;
 
 use shintarosakata\LaravelRepository\Entity\Entity as upstreamEntity;
 
-class Test extends upstreamEntity
+class Sample extends upstreamEntity
 {
     // Add behavior here...
 }
@@ -183,21 +183,21 @@ class Test extends upstreamEntity
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Tests\TestsInterface;
+use App\Repositories\Samples\SamplesInterface;
 
 class SampleController extends Controller
 {
-    private $tests_repository;
+    private $samples_repository;
 
     // Dependency injection
-    public function __construct(TestsInterface $tests_repository) {
-        $this->tests_repository = $tests_repository;
+    public function __construct(SamplesInterface $samples_repository) {
+        $this->samples_repository = $samples_repository;
     }
 
     public function index()
     {
-        $first_test_entity = $this->tests_repository->fetchFirst();
-        return view('sample.index', $first_test_entity);
+        $first_sample_entity = $this->samples_repository->fetchFirst();
+        return view('sample.index', $first_sample_entity);
     }
 }
 
