@@ -89,6 +89,29 @@ class RepositoryProvider extends upstreamRepositoryProvider
     // ...
 ```
 
+#### Register provider
+
+./config/app.php
+
+```./config/app.php
+<?php
+
+return [
+    
+    // ...
+    
+    'providers' => [
+        // ...
+
+        App\Providers\RepositoryProvider::class, // register provider
+    ],
+    
+    // ...
+
+];
+
+```
+
 ### 3. Defining Repositories
 
 ```php
