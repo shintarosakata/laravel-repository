@@ -2,6 +2,7 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![StyleCI](https://github.styleci.io/repos/209440408/shield?branch=master)](https://github.styleci.io/repos/209440408)
+[![Latest Stable Version](https://poser.pugx.org/shintarosakata/laravel-repository/v/stable)](https://packagist.org/packages/shintarosakata/laravel-repository)
 
 ## About
 
