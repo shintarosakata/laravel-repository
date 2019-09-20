@@ -10,14 +10,14 @@ class MakeCommandTest extends TestCase
     public function testMakeRepository()
     {
         $this->artisan('make:repository', [
-            'name' => 'Samples'
+            'name' => 'Samples',
         ])->expectsOutput('Repository created successfully.');
     }
 
     public function testExistsRepository()
     {
-        $dir_path = app_path() . '/Repositories';
-        $file_path = $dir_path . '/Samples/Samples.php';
+        $dir_path = app_path().'/Repositories';
+        $file_path = $dir_path.'/Samples/Samples.php';
         $this->assertFileExists($file_path);
         File::deleteDirectory($dir_path);
     }
@@ -25,14 +25,14 @@ class MakeCommandTest extends TestCase
     public function testMakeInterface()
     {
         $this->artisan('make:interface', [
-            'name' => 'Samples'
+            'name' => 'Samples',
         ])->expectsOutput('Interface created successfully.');
     }
 
     public function testExistsInterface()
     {
-        $dir_path = app_path() . '/Repositories';
-        $file_path = $dir_path . '/Samples/SamplesInterface.php';
+        $dir_path = app_path().'/Repositories';
+        $file_path = $dir_path.'/Samples/SamplesInterface.php';
         $this->assertFileExists($file_path);
         File::deleteDirectory($dir_path);
     }
@@ -40,14 +40,14 @@ class MakeCommandTest extends TestCase
     public function testMakeEntity()
     {
         $this->artisan('make:entity', [
-            'name' => 'Sample'
+            'name' => 'Sample',
         ])->expectsOutput('Entity created successfully.');
     }
 
     public function testExistsEntity()
     {
-        $dir_path = app_path() . '/Entities';
-        $file_path = $dir_path . '/Sample.php';
+        $dir_path = app_path().'/Entities';
+        $file_path = $dir_path.'/Sample.php';
         $this->assertFileExists($file_path);
         File::deleteDirectory($dir_path);
     }
@@ -55,13 +55,13 @@ class MakeCommandTest extends TestCase
     public function testMakeProvider()
     {
         $this->artisan('make:repositoryProvider', [
-            'name' => 'RepositoryProvider'
+            'name' => 'RepositoryProvider',
         ])->expectsOutput('Provider created successfully.');
     }
 
     public function testExistsProvider()
     {
-        $file_path = app_path() . '/Providers/RepositoryProvider.php';
+        $file_path = app_path().'/Providers/RepositoryProvider.php';
         $this->assertFileExists($file_path);
         File::delete($file_path);
     }
