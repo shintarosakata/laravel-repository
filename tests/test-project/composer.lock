@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a81ea5a73ebc29fdd013d76177a616e",
+    "content-hash": "db3838b0d0064562a1d0dc556f23b4d4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1414,6 +1414,50 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "shintarosakata/laravel-repository",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shintarosakata/laravel-repository.git",
+                "reference": "8fa891613d26605d9e9fa290d0d3fe5d8a1584dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shintarosakata/laravel-repository/zipball/8fa891613d26605d9e9fa290d0d3fe5d8a1584dc",
+                "reference": "8fa891613d26605d9e9fa290d0d3fe5d8a1584dc",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~6.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "shintarosakata\\LaravelRepository\\LaravelRepositoryServiceProvider",
+                        "shintarosakata\\LaravelRepository\\ConsoleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "shintarosakata\\LaravelRepository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shintaro.sakata",
+                    "email": "shintaro.sakata@leverages.jp"
+                }
+            ],
+            "time": "2019-09-20T01:03:14+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4876,7 +4920,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "shintarosakata/laravel-repository": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
