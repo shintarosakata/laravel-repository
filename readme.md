@@ -1,4 +1,12 @@
-## About Laravel-Repository
+# Laravel-Repository
+
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![StyleCI](https://github.styleci.io/repos/209440408/shield?branch=master)](https://github.styleci.io/repos/209440408)
+[![Latest Stable Version](https://poser.pugx.org/shintarosakata/laravel-repository/v/stable)](https://packagist.org/packages/shintarosakata/laravel-repository)
+[![codecov](https://codecov.io/gh/shintarosakata/laravel-repository/branch/master/graph/badge.svg)](https://codecov.io/gh/shintarosakata/laravel-repository)
+[![Build Status](https://travis-ci.org/shintarosakata/laravel-repository.svg?branch=master)](https://travis-ci.org/shintarosakata/laravel-repository)
+
+## About
 
 framework for building repository pattern in Laravel.
 
@@ -19,6 +27,7 @@ $ composer require shintarosakata/laravel-repository
 ```
 $ artisan make:repository <name>
 $ artisan make:interface <name>
+$ artisan make:entity <name>
 $ artisan make:repositoryProvider <name>
 ```
 
@@ -33,17 +42,33 @@ Entity name -> singular
 Other -> plural
 
 ```
-$ artisan make:entity Test
+$ artisan make:entity Sample
 entity created successfully.
 
-$ artisan make:repository Tests
+$ artisan make:repository Samples
 repository created successfully.
 
-$ artisan make:interface Tests
+$ artisan make:interface Samples
 repository created successfully.
 
 $ artisan make:repositoryProvider RepositoryProvider
 Provider created successfully.
+```
+
+↓
+
+```
+.
+└── app
+    ├── Entities
+    │   └── Sample.php
+    │
+    ├── Repositories
+    │   ├── Samples.php
+    │   └── SamplesInterface.php
+    │
+    └── Providers
+        └── RepositoryProvider
 ```
 
 ### 2. Binding Interfaces To Implementations
@@ -60,10 +85,33 @@ class RepositoryProvider extends upstreamRepositoryProvider
     // ...
     
     protected $repositories = [
-        'Tests', // Add <name> here
+        'Samples', // Add <name> here
     ];
 
     // ...
+```
+
+#### Register provider
+
+./config/app.php
+
+```./config/app.php
+<?php
+
+return [
+    
+    // ...
+    
+    'providers' => [
+        // ...
+
+        App\Providers\RepositoryProvider::class, // register provider
+    ],
+    
+    // ...
+
+];
+
 ```
 
 ### 3. Defining Repositories
@@ -71,17 +119,17 @@ class RepositoryProvider extends upstreamRepositoryProvider
 ```php
 <?php
 
-namespace App\Repositories\Tests;
+namespace App\Repositories\Samples;
 
 use shintarosakata\LaravelRepository\Repository\Repository;
 use Illuminate\Database\Eloquent\Collection;
-use App\Entities\Test;
+use App\Entities\Sample;
 
-class Tests extends Repository implements TestsInterface
+class Samples extends Repository implements SamplesInterface
 {
-    protected $table = ''; // Add DB Table name here
+    protected $table = 'samples'; // Add DB Table name here
     
-    public function fetchFirst(): Test
+    public function fetchFirst(): Sample
     {
         return $this->builder->first();
     }
@@ -99,17 +147,17 @@ class Tests extends Repository implements TestsInterface
 ```php
 <?php
 
-namespace App\Repositories\Tests;
+namespace App\Repositories\Samples;
 
 use shintarosakata\LaravelRepository\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
-use App\Entities\Test;
+use App\Entities\Sample;
 
-interface TestsInterface extends RepositoryInterface
+interface SamplesInterface extends RepositoryInterface
 {
     // Add public functions here...
     
-    public function fetchFirst(): Test;
+    public function fetchFirst(): Sample;
 
     public function fetchAll(): Collection;
 }
@@ -124,7 +172,7 @@ namespace App\Entities;
 
 use shintarosakata\LaravelRepository\Entity\Entity as upstreamEntity;
 
-class Test extends upstreamEntity
+class Sample extends upstreamEntity
 {
     // Add behavior here...
 }
@@ -137,21 +185,21 @@ class Test extends upstreamEntity
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Features\FeaturesInterface;
+use App\Repositories\Samples\SamplesInterface;
 
 class SampleController extends Controller
 {
-    private $tests_repository;
+    private $samples_repository;
 
     // Dependency injection
-    public function __construct(TestsInterface $tests_repository) {
-        $this->tests_repository = $tests_repository;
+    public function __construct(SamplesInterface $samples_repository) {
+        $this->samples_repository = $samples_repository;
     }
 
     public function index()
     {
-        $first_test_entity = $this->tests_repository->fetchFirst();
-        return view('sample.index', $first_test_entity);
+        $first_sample_entity = $this->samples_repository->fetchFirst();
+        return view('sample.index', $first_sample_entity);
     }
 }
 

@@ -25,7 +25,6 @@ class MakeRepositoryProvider extends Command
      *
      * @return void
      */
-
     protected $type = 'Provider';
 
     protected function getStub()
@@ -34,13 +33,13 @@ class MakeRepositoryProvider extends Command
     }
 
     /**
-     * クラスのデフォルトの名前空間を取得する
+     * クラスのデフォルトの名前空間を取得する.
      *
      * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Providers';
+        return $rootNamespace.'\Providers';
     }
 }

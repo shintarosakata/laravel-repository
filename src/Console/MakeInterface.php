@@ -25,7 +25,6 @@ class MakeInterface extends Command
      *
      * @return void
      */
-
     protected $type = 'Interface';
 
     protected function getStub()
@@ -34,23 +33,23 @@ class MakeInterface extends Command
     }
 
     /**
-     * クラスのデフォルトの名前空間を取得する
+     * クラスのデフォルトの名前空間を取得する.
      *
      * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories\\' . trim($this->argument('name'));
+        return $rootNamespace.'\Repositories\\'.trim($this->argument('name'));
     }
 
     /**
-     * クラス名の偽装
+     * クラス名の偽装.
      *
      * @return string
      */
     protected function getNameInput()
     {
-        return trim($this->argument('name')) . 'Interface';
+        return trim($this->argument('name')).'Interface';
     }
 }
