@@ -1,0 +1,18 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".php">./tests</directory>
+                <file>./src/ConsoleServiceProvider.php</file>
+                <file>./src/LaravelRepositoryServiceProvider.php</file>
+                <file>./src/Repository/RepositoryInterface.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
