@@ -91,6 +91,7 @@ abstract class Repository implements RepositoryInterface
         $class_name_list = explode('\\', $repository_class);
         $class_name = last($class_name_list);
         $entity_class = 'App\Entities\\'.$class_name;
+
         return Str::singular($entity_class);
     }
 
