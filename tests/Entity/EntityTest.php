@@ -14,40 +14,35 @@ class EntityTest extends BaseTestCase
     protected $test_entity;
 
     /**
-     *
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->test_entity = $this->getMockForAbstractClass(Entity::class);
-    }
-
-    /**
      * repositoryクラスが存在しない場合
      */
     public function testGetEntityClassName(): void
     {
-        $this->test_entity->setTable('tests');
+        $test_entity = $this->getMockForAbstractClass(Entity::class);
+        $test_entity->setTable('tests');
 
-        $this->assertEquals('tests', $this->test_entity->getTable());
+        $this->assertEquals('tests', $test_entity->getTable());
     }
 
     /**
+     *
+     *
      * @throws \ReflectionException
      */
     public function testGetRepositoryClassName()
     {
+        $test_entity = $this->getMockForAbstractClass(Entity::class);
+
         // approve private method
-        $reflection = new ReflectionClass($this->test_entity);
+        $reflection = new ReflectionClass($test_entity);
         $getRepositoryClassName = $reflection->getMethod('getRepositoryClassName');
 
         $getRepositoryClassName->setAccessible(true);
 
         // exec method
-        $result = $getRepositoryClassName->invoke($this->test_entity, 'ehgrga\argarg\srthst\person');
-        $result2 = $getRepositoryClassName->invoke($this->test_entity, '\random\string\entity');
-        $result3 = $getRepositoryClassName->invoke($this->test_entity, 'App\Entities\User');
+        $result = $getRepositoryClassName->invoke($test_entity, 'ehgrga\argarg\srthst\person');
+        $result2 = $getRepositoryClassName->invoke($test_entity, '\random\string\entity');
+        $result3 = $getRepositoryClassName->invoke($test_entity, 'App\Entities\User');
 
         $this->assertEquals('App\Repositories\people\people', $result);
         $this->assertEquals('App\Repositories\entities\entities', $result2);
