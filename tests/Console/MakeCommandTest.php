@@ -12,7 +12,6 @@ class MakeCommandTest extends BaseTestCase
         $this->artisan('make:repository', [
             'name' => 'Samples',
         ])->expectsOutput('Repository created successfully.');
-        $this->assertTrue(true);
     }
 
     public function testExistsRepository()
