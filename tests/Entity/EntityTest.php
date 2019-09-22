@@ -14,7 +14,7 @@ class EntityTest extends BaseTestCase
     protected $test_entity;
 
     /**
-     * repositoryクラスが存在しない場合
+     * repositoryクラスが存在しない場合.
      */
     public function testGetEntityClassName(): void
     {
@@ -25,8 +25,6 @@ class EntityTest extends BaseTestCase
     }
 
     /**
-     *
-     *
      * @throws \ReflectionException
      */
     public function testGetRepositoryClassName()
