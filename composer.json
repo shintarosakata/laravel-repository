@@ -19,7 +19,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "shintarosakata\\LaravelRepository\\Test\\": "tests/"
+            "shintarosakata\\LaravelRepository\\Tests\\": "tests/"
         }
     },
     "extra": {

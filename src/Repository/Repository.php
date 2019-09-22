@@ -19,18 +19,17 @@ abstract class Repository implements RepositoryInterface
     protected $builder;
 
     /**
-     * AppRepository constructor.
+     * Repository constructor.
+     * @param null $entity
      * @throws \ReflectionException
      */
-    public function __construct()
+    public function __construct($entity = null)
     {
-        $entity_class = $this->getEntityClassName(get_class($this));
+        if (is_null($entity)) {
+            $entity = $this->searchEntity();
+        }
 
-        $entity_instance = $this->instantiateClass($entity_class);
-
-        $entity_instance->setTable($this->table);
-
-        $this->setBuilder($entity_instance);
+        $this->setBuilder($entity->setTable($this->table));
     }
 
     /**
@@ -39,9 +38,7 @@ abstract class Repository implements RepositoryInterface
      */
     public function newEntity(): Entity
     {
-        $entity_class_name = $this->getEntityClassName(get_class($this));
-
-        return $this->instantiateClass($entity_class_name);
+        return new $this->builder;
     }
 
     /**
@@ -95,7 +92,7 @@ abstract class Repository implements RepositoryInterface
         $class_name = last($class_name_list);
         $entity_class = 'App\Entities\\'.$class_name;
 
-        return $entity_class;
+        return Str::singular($entity_class);
     }
 
     /**
@@ -105,8 +102,19 @@ abstract class Repository implements RepositoryInterface
      */
     private function instantiateClass(string $class_name): Entity
     {
-        $ref = new \ReflectionClass(Str::singular($class_name));
+        $ref = new \ReflectionClass($class_name);
 
         return $ref->newInstance();
+    }
+
+    /**
+     * @return Entity
+     * @throws \ReflectionException
+     */
+    private function searchEntity(): Entity
+    {
+        $entity_class = $this->getEntityClassName(get_class($this));
+
+        return $entity_instance = $this->instantiateClass($entity_class);
     }
 }
