@@ -1,4 +1,13 @@
-<phpunit bootstrap="vendor/autoload.php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
@@ -11,8 +20,12 @@
         </whitelist>
     </filter>
     <testsuites>
-        <testsuite name="Unit">
+        <testsuite name="Example">
             <directory>./tests</directory>
+        </testsuite>
+
+        <testsuite name="Console">
+            <directory>./tests/Console</directory>
         </testsuite>
     </testsuites>
 </phpunit>

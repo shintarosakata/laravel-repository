@@ -4,12 +4,7 @@ php:
   - 7.3
 
 install:
-  - cd tests/test-project/
-  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-
-before_script:
-  - cp .travis.env .env
-  - php artisan key:generate
+  - travis_retry composer install --dev --no-interaction --prefer-dist --no-suggest
 
 script:
   - ./vendor/bin/phpunit --coverage-clover clover.xml

@@ -1,3 +1,8 @@
+# phpstorm
 .idea
 
+# vendor
 vendor
+
+# phpunit
+.phpunit.result.cache

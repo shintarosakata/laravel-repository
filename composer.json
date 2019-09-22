@@ -17,6 +17,11 @@
             "shintarosakata\\LaravelRepository\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "shintarosakata\\LaravelRepository\\Test\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -24,5 +29,8 @@
                 "shintarosakata\\LaravelRepository\\ConsoleServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0"
     }
 }
