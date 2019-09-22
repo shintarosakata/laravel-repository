@@ -2,9 +2,9 @@
 
 namespace shintarosakata\LaravelRepository\Tests\Repository;
 
+use ReflectionClass;
 use shintarosakata\LaravelRepository\Entity\Entity;
 use shintarosakata\LaravelRepository\Tests\BaseTestCase;
-use ReflectionClass;
 
 class RepositoryTest extends BaseTestCase
 {
@@ -21,7 +21,7 @@ class RepositoryTest extends BaseTestCase
     protected $table_name;
 
     /**
-     * initialize testsRepository with stubEntity
+     * initialize testsRepository with stubEntity.
      *
      * @throws \ReflectionException
      */
@@ -46,7 +46,7 @@ class RepositoryTest extends BaseTestCase
     {
         $this->assertNotSame($this->test_entity, $this->tests_repository->newEntity());
 
-        $this->assertEquals(get_class($this->test_entity) , get_class($this->tests_repository->newEntity()));
+        $this->assertEquals(get_class($this->test_entity), get_class($this->tests_repository->newEntity()));
     }
 
     public function testGetEntityClassName(): void
