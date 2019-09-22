@@ -1,22 +1,18 @@
 <?php
 
-namespace Tests\Console;
+namespace shintarosakata\LaravelRepository\Tests\Console;
 
-use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\File;
+use shintarosakata\LaravelRepository\Tests\BaseTestCase;
 
-class MakeCommandTest extends TestCase
+class MakeCommandTest extends BaseTestCase
 {
-    protected function getPackageProviders($app)
-    {
-        return ['shintarosakata\LaravelRepository\ConsoleServiceProvider'];
-    }
-
     public function testMakeRepository()
     {
         $this->artisan('make:repository', [
             'name' => 'Samples',
         ])->expectsOutput('Repository created successfully.');
+        $this->assertTrue(true);
     }
 
     public function testExistsRepository()
