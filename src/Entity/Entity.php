@@ -14,7 +14,9 @@ abstract class Entity extends Model
             return optional(new $repository_class)->getTable() ?? parent::getTable();
         }
 
-        return parent::getTable();
+        return  parent::getTable();
+
+
     }
 
     private function getRepositoryClassName(string $entity_class): string
@@ -23,6 +25,10 @@ abstract class Entity extends Model
         $class_name = Str::plural(last($class_name_list));
         $repository_class = 'App\Repositories\\'.$class_name.'\\'.$class_name;
 
+
+
         return $repository_class;
     }
 }
+
+
